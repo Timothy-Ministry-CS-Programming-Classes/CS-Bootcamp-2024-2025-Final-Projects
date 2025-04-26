@@ -18,6 +18,6 @@ phases:
       
 artifacts:
   files:
-    - base-game.exe
+    - dist/base-game.exe
   
   discard-paths: yes
