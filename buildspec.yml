@@ -14,7 +14,7 @@ phases:
      
   build:
     commands:
-      - pyinstaller base-game/game.py --hidden-import=pyglet --icon=serial-tests/icon.png  --onefile
+      - pyinstaller base-game/game.py --hidden-import=pyglet  --onefile
       
 artifacts:
   files:
