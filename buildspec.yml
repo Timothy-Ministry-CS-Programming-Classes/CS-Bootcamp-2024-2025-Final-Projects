@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - mkdir 'C:\tmp\nuget'
+      - mkdir 'C:\tmp\temp-pip'
+      - wget https://aka.ms/nugetclidl -OutFile 'C:\tmp\nuget\nuget.exe'
+      - C:\tmp\nuget\nuget.exe install python -ExcludeVersion -OutputDirectory .
+      - wget https://bootstrap.pypa.io/get-pip.py -OutFile 'C:\tmp\temp-pip\get-pip.py'
+      - python C:\tmp\temp-pip\get-pip.py
+      - pip install pyinstaller
+      - pip install pyglet
+     
+  build:
+    commands:
+      - pyinstaller base-game/game.py --hidden-import=pyglet --icon=serial-tests/icon.png  --onefile
+      
+artifacts:
+  files:
+    - base-game.exe
+  
+  discard-paths: yes
