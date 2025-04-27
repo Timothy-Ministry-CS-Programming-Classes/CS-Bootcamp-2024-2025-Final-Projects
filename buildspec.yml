@@ -16,7 +16,7 @@ phases:
       - python preprocess_assets.py
   build:
     commands:
-      - pyinstaller base-game/game.py --hidden-import=pyglet --windowed --name=base-game.exe --onefile
+      - pyinstaller base-game/game.py --hidden-import=pyglet --windowed --name=base-game.exe --onefile --add-data=base-game/assets;assets
       
 artifacts:
   files:
