@@ -16,7 +16,9 @@ def resource_path(relative_path):
         base_path = sys._MEIPASS
     except Exception:
         base_path = os.path.abspath(".")
-    return os.path.join(base_path, relative_path)
+
+    safe_relative_path = os.path.normpath(relative_path)
+    return os.path.join(base_path, safe_relative_path)
 '''
 
 def inject_resource_path_function(content):
