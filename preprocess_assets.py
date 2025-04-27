@@ -38,13 +38,13 @@ def replace_asset_paths(content):
 def backup_config_file(config_path):
     backup_path = config_path + ".bak"
     shutil.copyfile(config_path, backup_path)
-    print(f"🛡️  Backup created: {backup_path}")
+    print(f"Backup created: {backup_path}")
 
 def process_config_file(config_path):
-    print(f"🔧 Processing {config_path}")
+    print(f"Processing {config_path}")
 
     if not os.path.exists(config_path):
-        print(f"⚠️  Warning: {config_path} not found, skipping.")
+        print(f"Warning: {config_path} not found, skipping.")
         return
 
     # Create a backup before modifying
@@ -59,7 +59,7 @@ def process_config_file(config_path):
     with open(config_path, "w", encoding="utf-8") as f:
         f.write(content)
 
-    print(f"✅ Finished {config_path}")
+    print(f"Finished {config_path}")
 
 def main():
     base_dir = "."
@@ -75,7 +75,7 @@ def main():
                 found = True
 
     if not found:
-        print(f"❌ No matching folders with config.py and assets/ found. Exiting.", file=sys.stderr)
+        print(f"No matching folders with config.py and assets/ found. Exiting.", file=sys.stderr)
         sys.exit(1)
 
 if __name__ == "__main__":
