@@ -11,10 +11,12 @@ phases:
       - python C:\tmp\temp-pip\get-pip.py
       - pip install pyinstaller
       - pip install pyglet
-     
+  pre_build:
+    commands:
+      - python preprocess_assets.py
   build:
     commands:
-      - pyinstaller base-game/game.py --hidden-import=pyglet --name=base-game.exe --onefile
+      - pyinstaller base-game/game.py --hidden-import=pyglet --windowed --name=base-game.exe --onefile
       
 artifacts:
   files:
